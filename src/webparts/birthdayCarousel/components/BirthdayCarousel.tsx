@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './BirthdayCarousel.module.scss';
+import customcss from './custom.module.scss';
 import { IBirthdayCarouselProps } from './IBirthdayCarouselProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { Carousel, CarouselButtonsDisplay, CarouselButtonsLocation, ICarouselImageProps } from "@pnp/spfx-controls-react/lib/Carousel";
@@ -64,33 +65,41 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
     };
     let occation = await this.ServiceInstance.getAllListItems(AllItemQuery);
 
-    occation.map(item => {
-      let isBirthday = false;
-      let isAnniversary = false;
-      let birthDate = item.Birthday ? new Date(item.Birthday).getDate() : null;
-      let birthMonth = item.Birthday ? new Date(item.Birthday).getMonth() + 1 : null;
-      let anniversaryDate = item.Anniversary ? new Date(item.Anniversary).getDate() : null;
-      let anniversaryMonth = item.Anniversary ? new Date(item.Anniversary).getMonth() + 1 : null;
-      isBirthday = (new Date().getDate() === birthDate && new Date().getMonth() + 1 === birthMonth);
-      isAnniversary = (new Date().getDate() === anniversaryDate && new Date().getMonth() + 1 === anniversaryMonth);
-      const descrptionHTML: JSX.Element =
-        <div>
-          <p>{new Date().toLocaleDateString()}</p>
-          <p>{isBirthday ? 'Happy Birthday' : isAnniversary ? 'Happy Anniversary' : ''}</p>
-        </div>
+    if (occation.length > 0) {
+      occation.map(item => {
+        let isBirthday = false;
+        let isAnniversary = false;
+        let birthDate = item.Birthday ? new Date(item.Birthday).getDate() : null;
+        let birthMonth = item.Birthday ? new Date(item.Birthday).getMonth() + 1 : null;
+        let anniversaryDate = item.Anniversary ? new Date(item.Anniversary).getDate() : null;
+        let anniversaryMonth = item.Anniversary ? new Date(item.Anniversary).getMonth() + 1 : null;
+        isBirthday = (new Date().getDate() === birthDate && new Date().getMonth() + 1 === birthMonth);
+        isAnniversary = (new Date().getDate() === anniversaryDate && new Date().getMonth() + 1 === anniversaryMonth);
+        const descrptionHTML: JSX.Element =
+          <div>
+            <p>{new Date().toLocaleDateString()}</p>
+            <p>{isBirthday ? 'Happy Birthday' : isAnniversary ? 'Happy Anniversary' : ''}</p>
+          </div>
 
-
-
+        temp.push({
+          imageSrc: require(isBirthday ? '../assets/Birthday.png' : isAnniversary ? '../assets/Anniversary.gif' : '../assets/Birthday.png'),
+          title: `${item.Title}`,
+          // url: `${new Date().toLocaleDateString()}`,
+          // description: isBirthday ? 'Happy Birthday' : isAnniversary ? 'Happy Anniversary' : '',
+          description: descrptionHTML,
+          showDetailsOnHover: false,
+          imageFit: ImageFit.cover
+        })
+      });
+    } else {
       temp.push({
-        imageSrc: require(isBirthday ? '../assets/Birthday.png' : isAnniversary ? '../assets/Anniversary.gif' : '../assets/Birthday.png'),
-        title: `${item.Title}`,
-        // url: `${new Date().toLocaleDateString()}`,
-        // description: isBirthday ? 'Happy Birthday' : isAnniversary ? 'Happy Anniversary' : '',
-        description: descrptionHTML,
+        imageSrc: require('../assets/EmptyImage.jpg'),
+        title: `No Event`,
+        description: '',
         showDetailsOnHover: false,
         imageFit: ImageFit.cover
       })
-    });
+    }
 
     this.setState({ carouselElement: temp });
   }
@@ -108,7 +117,7 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
           buttonsLocation={CarouselButtonsLocation.top}
           buttonsDisplay={CarouselButtonsDisplay.block}
 
-          contentContainerStyles={styles.customcontainer}
+          contentContainerStyles={customcss.customContainer}
           // containerButtonsStyles={styles.carouselButtonsContainer}
 
           interval={3000}
