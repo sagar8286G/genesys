@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "genesys-webaprt-solution-client-side-solution",
+    "id": "6d6bbcb8-afac-4281-b36e-3beb82360a5f",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/genesys-webaprt-solution.sppkg"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "people-directory-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/peopleDirectory/PeopleDirectoryWebPart.js",
+          "manifest": "./src/webparts/peopleDirectory/PeopleDirectoryWebPart.manifest.json"
+        }
+      ]
+    },
+    "search-filter-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/searchFilter/SearchFilterWebPart.js",
+          "manifest": "./src/webparts/searchFilter/SearchFilterWebPart.manifest.json"
+        }
+      ]
+    },
+    "birthday-carousel-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/birthdayCarousel/BirthdayCarouselWebPart.js",
+          "manifest": "./src/webparts/birthdayCarousel/BirthdayCarouselWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "PeopleDirectoryWebPartStrings": "lib/webparts/peopleDirectory/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
+    "SearchFilterWebPartStrings": "lib/webparts/searchFilter/loc/{locale}.js",
+    "BirthdayCarouselWebPartStrings": "lib/webparts/birthdayCarousel/loc/{locale}.js"
+  }
+}

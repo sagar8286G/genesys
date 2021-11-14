@@ -1,0 +1,27 @@
+.webPartContainer {
+    display: none;
+}
+
+#CommentsWrapper {
+    display: none;
+}
+
+.container2 {
+    float: right;
+    margin-top: -150px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.search {
+    margin-left: 20px;    
+    margin-top: -14px;
+    float: right;
+}
+
+.vl {
+    border-left: 3px solid gray;
+}
+ 
