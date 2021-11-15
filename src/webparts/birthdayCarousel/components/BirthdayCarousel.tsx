@@ -5,7 +5,7 @@ import { IBirthdayCarouselProps } from './IBirthdayCarouselProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { Carousel, CarouselButtonsDisplay, CarouselButtonsLocation, ICarouselImageProps } from "@pnp/spfx-controls-react/lib/Carousel";
 import { ICssInput, ImageFit, styled } from 'office-ui-fabric-react';
-import spservices from '../../../Services/spService';
+import spservices, { IAllItems } from '../../../Services/spService';
 import { stringIsNullOrEmpty } from '@pnp/common';
 
 export interface IcarouselElement {
@@ -19,16 +19,6 @@ export interface IcarouselElement {
 
 export interface IBirthdayCarouselStates {
   carouselElement: IcarouselElement[];
-}
-
-export interface IAllItems {
-  listName: string;
-  Id?: string;
-  selectQuery?: string;
-  filterQuery?: string;
-  expandQuery?: string;
-  orderByQuery?: { columnName: string, ascending: boolean };
-  topQuery?: number;
 }
 
 export default class BirthdayCarousel extends React.Component<IBirthdayCarouselProps, IBirthdayCarouselStates> {
@@ -77,8 +67,8 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
         isAnniversary = (new Date().getDate() === anniversaryDate && new Date().getMonth() + 1 === anniversaryMonth);
         const descrptionHTML: JSX.Element =
           <div>
-            <p>{new Date().toLocaleDateString()}</p>
-            <p>{isBirthday ? 'Happy Birthday' : isAnniversary ? 'Happy Anniversary' : ''}</p>
+            <p className={customcss.datePosition}>{new Date().toLocaleDateString()}</p>
+            <p>{isBirthday ? item.BirthdayMessage : isAnniversary ? item.AnniversaryMessage : ''}</p>
           </div>
 
         temp.push({
@@ -125,8 +115,8 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
           isInfinite={true}
           element={this.state.carouselElement}
 
-          onMoveNextClicked={(index: number) => { console.log(`Next button clicked: ${index}`); }}
-          onMovePrevClicked={(index: number) => { console.log(`Prev button clicked: ${index}`); }}
+          onMoveNextClicked={(index: number) => { }}
+          onMovePrevClicked={(index: number) => { }}
         />
       </div >
     );

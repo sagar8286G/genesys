@@ -1,5 +1,14 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
-.customContainer{
+.customContainer {
     height: 400px;
 }
+
+.datePosition {
+    float: right;
+    margin-top: -38px;
+}
+
+div[class^='details_'] {
+    top:75% !important;
+ }
