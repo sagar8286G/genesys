@@ -54,7 +54,6 @@ export default class ContentAccordion extends React.Component<IContentAccordionP
   }
 
   public render(): React.ReactElement<IContentAccordionProps> {
-    const listSelected: boolean = typeof this.props.listName !== "undefined" && this.props.listName.length > 0;
     const { allowMultipleExpanded, allowZeroExpanded } = this.state;
 
     const accordionHTML: JSX.Element[] = this.state.items.map(item => {

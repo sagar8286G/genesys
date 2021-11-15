@@ -49,7 +49,7 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
   public async componentDidMount() {
     let temp: IcarouselElement[] = [];
     let AllItemQuery: IAllItems = {
-      listName: 'Birthday',
+      listName: this.props.listName,
       filterQuery: `(Birthday ge '${this.getISODateString(new Date(), "00:00")}' and Birthday le '${this.getISODateString(new Date(), "23:59")}')
       or (Anniversary ge '${this.getISODateString(new Date(), "00:00")}' and Anniversary le '${this.getISODateString(new Date(), "23:59")}')`
     };

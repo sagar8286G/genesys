@@ -13,6 +13,7 @@ import { IBirthdayCarouselProps } from './components/IBirthdayCarouselProps';
 
 export interface IBirthdayCarouselWebPartProps {
   description: string;
+  listName: string;
 }
 
 export default class BirthdayCarouselWebPart extends BaseClientSideWebPart<IBirthdayCarouselWebPartProps> {
@@ -22,7 +23,8 @@ export default class BirthdayCarouselWebPart extends BaseClientSideWebPart<IBirt
       BirthdayCarousel,
       {
         description: this.properties.description,
-        context: this.context
+        context: this.context,
+        listName: this.properties.listName
       }
     );
 
@@ -50,7 +52,10 @@ export default class BirthdayCarouselWebPart extends BaseClientSideWebPart<IBirt
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }), PropertyPaneTextField('listName', {
+                  label: strings.ListNameFieldLabel
+                }),
+
               ]
             }
           ]
