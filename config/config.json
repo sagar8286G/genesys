@@ -25,6 +25,14 @@
           "manifest": "./src/webparts/birthdayCarousel/BirthdayCarouselWebPart.manifest.json"
         }
       ]
+    },
+    "content-accordion-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/contentAccordion/ContentAccordionWebPart.js",
+          "manifest": "./src/webparts/contentAccordion/ContentAccordionWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -32,6 +40,7 @@
     "PeopleDirectoryWebPartStrings": "lib/webparts/peopleDirectory/loc/{locale}.js",
     "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js",
     "SearchFilterWebPartStrings": "lib/webparts/searchFilter/loc/{locale}.js",
-    "BirthdayCarouselWebPartStrings": "lib/webparts/birthdayCarousel/loc/{locale}.js"
+    "BirthdayCarouselWebPartStrings": "lib/webparts/birthdayCarousel/loc/{locale}.js",
+    "ContentAccordionWebPartStrings": "lib/webparts/contentAccordion/loc/{locale}.js"
   }
 }
