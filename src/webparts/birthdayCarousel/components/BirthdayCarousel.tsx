@@ -3,7 +3,7 @@ import styles from './BirthdayCarousel.module.scss';
 import customcss from './custom.module.scss';
 import { IBirthdayCarouselProps } from './IBirthdayCarouselProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import { Carousel, CarouselButtonsDisplay, CarouselButtonsLocation, ICarouselImageProps } from "@pnp/spfx-controls-react/lib/Carousel";
+import { Carousel, CarouselButtonsDisplay, CarouselButtonsLocation, CarouselIndicatorShape, ICarouselImageProps } from "@pnp/spfx-controls-react/lib/Carousel";
 import { ICssInput, ImageFit, styled } from 'office-ui-fabric-react';
 import spservices, { IAllItems } from '../../../Services/spService';
 import { stringIsNullOrEmpty } from '@pnp/common';
@@ -109,7 +109,7 @@ export default class BirthdayCarousel extends React.Component<IBirthdayCarouselP
 
           contentContainerStyles={customcss.customContainer}
           // containerButtonsStyles={styles.carouselButtonsContainer}
-
+          indicatorShape={CarouselIndicatorShape.circle}
           interval={3000}
           slide={true}
           isInfinite={true}
