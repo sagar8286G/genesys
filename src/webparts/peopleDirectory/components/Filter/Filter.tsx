@@ -44,8 +44,8 @@ export class Filter extends React.Component<IFilterProps, {}> {
         });
 
         return (
-            <div >
-                <h3 style={{ fontSize: '20px', fontFamily: 'serif' }}>Departments</h3>
+            <div>
+                <h3 style={{ fontSize: '20px', fontFamily: 'serif' }}>Function</h3>
                 <br />
                 {
                     departmentNHTML
