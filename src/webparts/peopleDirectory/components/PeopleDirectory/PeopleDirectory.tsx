@@ -327,13 +327,15 @@ export class PeopleDirectory extends React.Component<IPeopleDirectoryProps, IPeo
           })
         }
 
-        Do not uncomment this code as related to rxjs - end */}        
-        <div className='container1'>
+        Do not uncomment this code as related to rxjs - end */}
+
+        {/* <div className='container1'>
           <Filter
             onFilterChange={this._handleFilterChange}
           />
         </div>
-        <div className='container2 vl'>
+        <div className='container2 vl'> */}
+        <div>
           <div style={{ marginLeft: '10px' }}>
             <WebPartTitle
               displayMode={this.props.displayMode}
